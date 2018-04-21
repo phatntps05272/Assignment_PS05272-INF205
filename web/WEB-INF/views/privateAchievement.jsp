@@ -97,7 +97,7 @@
                             <c:set var="id" value="${id + 1}"/>
                             <tr>
                                 <td>${id}</td>
-                                <td>
+                                <td style="width: 120px;">
                                     <c:choose>
                                         <c:when test="${item.type}">
                                             <spring:message code="content.recordstaff.type.reward"/>
@@ -109,7 +109,7 @@
                                 </td>
                                 <td id="resultName">${item.staff.name}</td>
                                 <td>${item.date}</td>
-                                <td>${item.reason}</td>
+                                <td style="width: 480px;">${item.reason}</td>
                             </tr>   
                         </c:forEach>
                     </tbody>
