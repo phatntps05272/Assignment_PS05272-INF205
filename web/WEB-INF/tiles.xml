@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/views/template/layout.jsp">
+        <put-attribute name="title" value="" /><!--Ban Đầu ko có chờ truyền mới có-->
+        <put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
+    </definition>
+    
+    <definition name="login" extends="base.definition">
+        <put-attribute name="title" value="Login" />
+        <put-attribute name="header" value=""/>
+        <put-attribute name="content" value="/WEB-INF/views/login.jsp"/>
+        <put-attribute name="footer" value=""/>
+    </definition>
+    
+    <definition name="forgotPwd" extends="base.definition">
+        <put-attribute name="title" value="Reset Password" />
+        <put-attribute name="header" value=""/>
+        <put-attribute name="content" value="/WEB-INF/views/forgotPwd.jsp"/>
+        <put-attribute name="footer" value=""/>
+    </definition>
+        
+    <definition name="index" extends="base.definition">
+        <put-attribute name="title" value="Home" />
+        <put-attribute name="current" value="index" />
+        <put-attribute name="content" value="/WEB-INF/views/index.jsp"/>
+    </definition>
+    
+    <definition name="depart" extends="base.definition">
+        <put-attribute name="title" value="Manage Depart" />
+        <put-attribute name="current" value="depart" />
+        <put-attribute name="content" value="/WEB-INF/views/depart.jsp"/>
+    </definition>
+    
+    <definition name="staff" extends="base.definition">
+        <put-attribute name="title" value="Manage Staff" />
+        <put-attribute name="current" value="staff" />
+        <put-attribute name="content" value="/WEB-INF/views/staff.jsp"/>
+    </definition>
+    
+    <definition name="record" extends="base.definition">
+        <put-attribute name="title" value="Record Staffs" />
+        <put-attribute name="current" value="record" />
+        <put-attribute name="content" value="/WEB-INF/views/record.jsp"/>
+    </definition>
+        
+    <definition name="privateAchievement" extends="base.definition">
+        <put-attribute name="title" value="Personal Achievements" />
+        <put-attribute name="content" value="/WEB-INF/views/privateAchievement.jsp"/>
+    </definition>
+    
+    <definition name="publicAchievement" extends="base.definition">
+        <put-attribute name="title" value="Department Achievements" />
+        <put-attribute name="content" value="/WEB-INF/views/publicAchievement.jsp"/>
+    </definition>
+</tiles-definitions>
