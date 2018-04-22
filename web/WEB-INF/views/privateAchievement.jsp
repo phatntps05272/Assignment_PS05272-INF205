@@ -108,8 +108,8 @@
                                     </c:choose>
                                 </td>
                                 <td id="resultName">${item.staff.name}</td>
-                                <td>${item.date}</td>
-                                <td style="width: 480px;">${item.reason}</td>
+                                <td style="width: 120px;">${item.date}</td>
+                                <td style="width: 450px;">${item.reason}</td>
                             </tr>   
                         </c:forEach>
                     </tbody>
