@@ -271,7 +271,7 @@
                     <p class="text-warning"><small><spring:message code="content.managestaff.del.message.warning"/></small></p>
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-secondary waves-effect" data-dismiss="modal" value="<spring:message code="content.button.cancel"/>">
+                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal"><spring:message code="content.button.cancel"/></button>
                     <a href="" class="btn btn-danger removeBtn"><spring:message code="content.button.del"/></a>
                 </div>
             </form>
