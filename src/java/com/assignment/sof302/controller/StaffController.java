@@ -7,7 +7,9 @@ package com.assignment.sof302.controller;
 
 import com.assignment.sof302.entities.Depart;
 import com.assignment.sof302.entities.Staff;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -66,12 +68,11 @@ public class StaffController {
                 String photoName = String.valueOf(getLastId() + 1);
                 String photoPath = context.getRealPath("/assets/images/users/");
                 File file = new File(photoPath + avatar.getOriginalFilename());
-                File renameFile = new File(photoPath + photoName + "." + FilenameUtils.getExtension(file.getName()));
-                avatar.transferTo(renameFile);
-                if (renameFile.exists()) {
-                    renameFile.delete();
-                }
-                photo = "assets/images/users/" + renameFile.getName();
+                File serverFile = new File(photoPath + photoName + "." + FilenameUtils.getExtension(file.getName()));
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+                stream.write(avatar.getBytes());
+                stream.close();
+                photo = "assets/images/users/" + serverFile.getName();
             }
 
             //Add photo and birthday to object           
@@ -106,12 +107,11 @@ public class StaffController {
                 String photoName = String.valueOf(staff.getId());
                 String photoPath = context.getRealPath("/assets/images/users/");
                 File file = new File(photoPath + avatar.getOriginalFilename());
-                File renameFile = new File(photoPath + photoName + "." + FilenameUtils.getExtension(file.getName()));
-                if (renameFile.exists()) {
-                    renameFile.delete();
-                }
-                avatar.transferTo(renameFile);
-                photo = "assets/images/users/" + renameFile.getName();
+                File serverFile = new File(photoPath + photoName + "." + FilenameUtils.getExtension(file.getName()));
+                BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+                stream.write(avatar.getBytes());
+                stream.close();
+                photo = "assets/images/users/" + serverFile.getName();
             }
 
             //Add photo and birthday to object
