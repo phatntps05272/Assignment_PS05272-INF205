@@ -6,6 +6,7 @@
 package com.assignment.sof302.entities;
 
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Depart {
     private int id;
     private String name;
     
-    @OneToMany(mappedBy = "depart", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "depart", fetch = FetchType.LAZY)
     private Collection<Staff> staffs;
 
     public int getId() {

@@ -7,6 +7,7 @@ package com.assignment.sof302.entities;
 
 import java.util.Collection;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class Staff {
     @ManyToOne
     @JoinColumn(name = "DepartId")
     private Depart depart;
-    @OneToMany(mappedBy = "staff", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "staff", fetch = FetchType.LAZY)
     private Collection<Record> records;
 
     public int getId() {
@@ -135,5 +136,4 @@ public class Staff {
         this.records = records;
     }
 
-    
 }
