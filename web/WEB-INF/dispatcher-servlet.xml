@@ -87,22 +87,22 @@
         </property>
     </bean>
 
-    <!-- Kết Nối CSDL Local
+    <!-- Kết Nối CSDL Local -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
         <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" /> 
         <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=ASM-PS05272_SOF302" /> 
         <property name="username" value="sa" /> 
         <property name="password" value="123" /> 
     </bean>
-    -->
-    
-    <!-- Kết Nối CSDL Azure -->
+        
+    <!-- Kết Nối CSDL Azure 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
         <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" /> 
         <property name="url" value="jdbc:sqlserver://phatnt0406.database.windows.net:1433;database=ASM-INF205" /> 
         <property name="username" value="phatnt@phatnt0406" /> 
         <property name="password" value="Asd123!@#" /> 
     </bean>
+    -->
     
     <!-- Cấu Hình Hibernate -->
     <bean id="sessionFactory"

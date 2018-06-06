@@ -57,9 +57,6 @@
         var result = $('#result').html();
         $('#result').remove();
         switch (result) {
-            case "success":
-                toastr.success("<spring:message code="forgotpwd.message.complete"/>");
-                break;
             case "error":
                 toastr.error("<spring:message code="forgotpwd.message.error"/>");
                 break;

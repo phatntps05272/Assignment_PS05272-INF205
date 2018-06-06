@@ -141,7 +141,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "forgotPwd", method = RequestMethod.POST)
-    public String forgotPwd(ModelMap model, @RequestParam("email") String email) {
+    public String forgotPwd(ModelMap model, @RequestParam("email") String email, RedirectAttributes redirectAttributes) {
         Session session = sessionFactory.openSession();
         Transaction t = session.beginTransaction();
         String newPwd = randomPwd();
@@ -165,7 +165,8 @@ public class UserController {
                             + "Thank you!", true);
                 }
             });
-            model.addAttribute("message", "success");
+            redirectAttributes.addFlashAttribute("message", "successForgotPwd");
+            return "redirect:/dashboard/login.html";
 
         } catch (Exception ex) {
             t.rollback();
