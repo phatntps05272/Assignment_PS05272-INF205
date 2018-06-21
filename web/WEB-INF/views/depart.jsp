@@ -121,23 +121,20 @@
 
 <script>
     $(document).ready(function () {
-        
+
         $('#frmAdd').submit(function () {
             var flag = true;
             $('#name').parent().children("ul").remove();
-            var name = /^\w$/;
+            var name = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ]+$/u;
 
-            if ($('#name').val() == '') {
+            if(!name.test($('#name').val())){
                 $('#name').addClass("parsley-error");
                 $('#name').parent().append('<ul class="parsley-errors-list filled"><li class="parsley-required"><spring:message code="content.managedepart.name.message.empty"/></li></ul>')
                 flag = false;
-            }else{
-                if(!name.test($('#name').val())){
-                    $('#name').addClass("parsley-error");
-                    $('#name').parent().append('<ul class="parsley-errors-list filled"><li class="parsley-required"><spring:message code="content.managedepart.name.message.empty"/></li></ul>')
-                    flag = false;  
-                }
+            } else {
+                $('#name').removeClass("parsley-error");
             }
+
             if (flag == false) {
                 return false;
             }
