@@ -286,6 +286,7 @@
             $('#frmAdd').submit(function () {
 
                 var phoneReg = /^\d{10,11}$/;
+                var name = /^\w$/;
                 var salaryReg = /^-?(\d+\.?\d*)$|(\d*\.?\d+)$/;
                 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                 var flag = true;
@@ -306,7 +307,13 @@
                     $('#name').after('<ul class="parsley-errors-list filled"><li class="parsley-required"><spring:message code="content.managestaff.fullname.message.empty"/></li></ul>');
                     flag = false;
                 } else {
-                    $('#name').removeClass("parsley-error");
+                    if(!name.test($('#name').val())){
+                        $('#name').addClass("parsley-error");
+                        $('#name').after('<ul class="parsley-errors-list filled"><li class="parsley-required"><spring:message code="content.managestaff.fullname.message.empty"/></li></ul>');
+                        flag = false;
+                    }else{
+                        $('#name').removeClass("parsley-error");
+                    }
                 }
 
                 if ($('#email').val() == '') {

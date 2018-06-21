@@ -125,11 +125,18 @@
         $('#frmAdd').submit(function () {
             var flag = true;
             $('#name').parent().children("ul").remove();
+            var name = /^\w$/;
 
             if ($('#name').val() == '') {
                 $('#name').addClass("parsley-error");
                 $('#name').parent().append('<ul class="parsley-errors-list filled"><li class="parsley-required"><spring:message code="content.managedepart.name.message.empty"/></li></ul>')
                 flag = false;
+            }else{
+                if(!name.test($('#name').val())){
+                    $('#name').addClass("parsley-error");
+                    $('#name').parent().append('<ul class="parsley-errors-list filled"><li class="parsley-required"><spring:message code="content.managedepart.name.message.empty"/></li></ul>')
+                    flag = false;  
+                }
             }
             if (flag == false) {
                 return false;
